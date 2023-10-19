@@ -1,8 +1,5 @@
 import { SpaceX } from "./api/spacex";
-import * as d3 from "d3";
-import * as Geo from './geo.json'
-import ColorScale from "color-scales";
-import { MainPage } from './UI/MainPage'
+import { MainPage } from './Pages/MainPage'
 document.addEventListener("DOMContentLoaded", setup)
 
 function setup() {
@@ -14,7 +11,7 @@ function setup() {
         mainPage.drawLaunchList();
     })
     spaceX.launchpads().then(data => {
-        mainPage.setLaunchpads(data.filter(launchpad => launchpad.launch_attempts > 0))
+        mainPage.setLaunchpads(data)
         mainPage.drawLaunchpadPoints();
     })
 }
